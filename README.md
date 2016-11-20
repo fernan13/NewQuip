@@ -20,3 +20,11 @@ anteriormente debe de iniciar sesión en Quip)</br>
 [Quip Web](https://quiip-fernan13.c9users.io/)
 
 ######*Capturas:*
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/1.png "Imagen 1").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/2.png "Imagen 2").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/3.png "Imagen 3").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/4.png "Imagen 4").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/5.png "Imagen 5").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/6.png "Imagen 6").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/7.png "Imagen 7").
+![Imagen no encontrada](https://github.com/fernan13/NewQuip/blob/master/capturas/8.png "Imagen 8").
