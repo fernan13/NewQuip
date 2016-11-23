@@ -20,3 +20,15 @@ anteriormente debe de iniciar sesión en Quip)</br>
 [Quip Web](https://quiip-fernan13.c9users.io/)
 
 ######*Capturas:*
+<p>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/1.png" width="200" heigth="400"/>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/2.png" width="200" heigth="400"/>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/3.png" width="200" heigth="400"/>          
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/4.png" width="200" heigth="400"/>
+</p>
+<p>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/5.png" width="200" heigth="400"/>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/6.png" width="200" heigth="400"/>
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/7.png" width="200" heigth="400"/>          
+          <img src="https://github.com/fernan13/NewQuip/blob/master/capturas/8.png" width="200" heigth="400"/>
+</p> 
