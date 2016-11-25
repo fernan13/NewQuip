@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fernando.proyectodam">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Permisos referentes a la conexion de internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Permisos para obtener el identificador de nuestro dispositivo -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Permisos localizacion -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:backupAgent=".util.Backup.MyBackupAgent"
+        android:fullBackupContent="@xml/my_backup_rules"
+        android:fullBackupOnly="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:restoreAnyVersion="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Nos permite hacer una copia de seguridad de los datos solicitados -->
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIC_WIkSXuHE0UPs6at6igU5X67aZ6a3OjmJ-VFA" />
+
+        <activity android:name=".vistas.login.ActivityLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".vistas.main.VistaQuip"
+            android:parentActivityName=".vistas.login.ActivityLogin">
+
+            <!-- Para versiones de android inferiores -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vistas.login.ActivityLogin" />
+        </activity>
+        <activity
+            android:name=".vistas.notas.VistaNota"
+            android:label=""
+            android:parentActivityName=".vistas.main.VistaQuip"
+            android:theme="@style/PopupTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+
+            <!-- Para versiones de android inferiores -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vistas.main.VistaQuip" />
+        </activity>
+        <activity
+            android:name=".vistas.listas.VistaLista"
+            android:label=""
+            android:parentActivityName=".vistas.main.VistaQuip"
+            android:theme="@style/PopupTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vistas.main.VistaQuip" />
+        </activity>
+
+
+        <activity
+            android:name=".vistas.ayuda.VistaAyuda"
+            android:parentActivityName=".vistas.main.VistaQuip"
+            android:label="Ayuda">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vistas.main.VistaQuip" />
+
+        </activity>
+
+        <activity
+            android:name=".vistas.ayuda.VistaAyudaDetalle"
+            android:label="Informacion"
+            android:parentActivityName=".vistas.ayuda.VistaAyuda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vistas.ayuda.VistaAyuda" />
+        </activity>
+
+        //Mapas
+        <activity android:name=".vistas.mapas.VistaMapa" />
+
+        <provider
+            android:name=".gestion.GestionProviderElementos"
+            android:authorities="com.example.fernando.proyectodam.gestion" />
+        <provider
+            android:name=".gestion.GestionProviderNetworkUpdate"
+            android:authorities="com.example.fernando.proyectodam.gestion2" />
+        <provider
+            android:name=".gestion.GestionProviderUsuarios"
+            android:authorities="com.example.fernando.proyectodam.gestion3" />
+
+        <!-- Lanza la notificacion a una hora determinada -->
+        <receiver
+            android:name=".util.Notificacion.MyNotification"
+            android:enabled="true" />
+
+        <!-- Cuando el dispositivo arranca de nuevo iniciamos si existe la notificacion programada en SP -->
+        <receiver
+            android:name=".util.Notificacion.RestartNotification"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Cuando el dispositivo detecta un cambio en la red intentamos actualizar la informacion -->
+        <receiver
+            android:name=".util.Web.BroadcastNetworkUpdate"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Datos de la aplicacion de Quip para Facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <service
+            android:name=".util.Web.MyIntentWebService"
+            android:exported="false" />
+
+
+        <!-- Mapas -->
+        <service
+            android:name=".util.Mapas.MapService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".util.Mapas.MapNotification"
+            android:enabled="true" />
+
+    </application>
+
+</manifest>
