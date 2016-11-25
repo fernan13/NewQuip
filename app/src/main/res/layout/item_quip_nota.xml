@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="nota" type="com.example.fernando.proyectodam.pojo.Nota"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_nota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:padding="8dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardBackgroundColor="@{nota.color}">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivImagenNotaRv"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@{nota.imagen}"
+                android:visibility="@{nota.imagen == null ? View.GONE : View.VISIBLE}"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp" />
+
+            <TextView
+                android:id="@+id/tvTituloNota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="@{nota.titulo}"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTextoNota"
+                android:text="@{nota.nota}"
+                android:padding="15dp"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{nota.fecha_not.empty &amp;&amp; nota.map_not.empty ? View.GONE : View.VISIBLE}"
+                android:gravity="right">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:srcCompat="@drawable/ic_place_black_24px"
+                    android:id="@+id/imageViewMapNotification"
+                    android:visibility="@{nota.map_not.empty ? View.GONE : View.VISIBLE}"
+                    android:padding="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:srcCompat="@drawable/ic_alarm_on_black_24px"
+                    android:id="@+id/imageViewNotification"
+                    android:visibility="@{nota.fecha_not.empty ? View.GONE : View.VISIBLE}"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
