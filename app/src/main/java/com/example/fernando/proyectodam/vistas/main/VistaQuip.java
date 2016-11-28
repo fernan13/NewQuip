@@ -119,6 +119,10 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
     private boolean isSearch;
     private String textSearch;
 
+
+    private static final int MAPS_INT   = 1;
+    private static final int HELP_INT   = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -193,6 +197,16 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
     }
 
     @Override
+    protected void onStart() {
+
+        identificadorFiltro     = 0;
+        isSearch                = true;
+        textSearch              = "";
+
+        super.onStart();
+    }
+
+    @Override
     protected void onResume() {
 
         getSupportLoaderManager().restartLoader(IDENTIFICADOR_LOADER, null, this);
@@ -210,6 +224,7 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
         super.onSaveInstanceState(outState);
 
         outState.putInt("identificadorFiltro", identificadorFiltro);
@@ -220,6 +235,7 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
             outState.putBoolean("isSearch", search.isIconified() );
             outState.putString( "textSearch", textSearch );
         }
+
     }
 
     //Asignamos menu contextual
@@ -835,7 +851,7 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
                     case R.id.help_drawer : {
 
                         Intent i = new Intent(VistaQuip.this, VistaAyuda.class);
-                        startActivity(i);
+                        startActivityForResult(i, HELP_INT);
 
                         break;
                     }
@@ -843,7 +859,7 @@ public class VistaQuip extends AppCompatActivity implements ContratoMain.Interfa
                     case R.id.maps_drawer : {
 
                         Intent i = new Intent(VistaQuip.this, VistaMapa.class);
-                        startActivity(i);
+                        startActivityForResult(i ,MAPS_INT);
 
                         break;
                     }
