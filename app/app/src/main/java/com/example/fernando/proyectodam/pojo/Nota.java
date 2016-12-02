@@ -183,6 +183,16 @@ public class Nota extends BaseObservable implements Parcelable {
     @BindingAdapter({"android:src"})
     public static void loadImage(ImageView view, Bitmap image) {
 
+        if ( image != null ) {
+
+            int width = image.getWidth();
+            int heigh = image.getHeight();
+
+            image = Bitmap.createScaledBitmap( image, (int)(width*1.5), (int)(heigh*1.5), false);
+
+
+        }
+
         view.setImageBitmap(image);
     }
 
